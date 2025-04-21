@@ -16,16 +16,26 @@
       in
       {
         devShells.default = pkgs.mkShell {
+          # Uncomment relevant sections!
+
+          # Packages e.g. used in cli
           packages = with pkgs; [
+            rustc
+            cargo
+            bacon
+            rust-analyzer
+            rustfmt
           ];
 
-          buildInputs = with pkgs; [
+          RUST_SRC_PATH = pkgs.rustPlatform.rustLibSrc;
 
-          ];
+          # Dependencies used during runtime
+          # pkgs of hosts architecture, e.g. added to "$NIX_LD_FLAGS"
+          # buildInputs = with pkgs; [];
 
-          nativeBuildInputs = with pkgs; [
-
-          ];
+          # Dependencies used during compiletime
+          # pkgs of buildPlatform's architecture, added to "$PATH"
+          # nativeBuildInputs = with pkgs; [];
 
           shellHook = ''
             echo -e "\n\e[1;32mUsing flake development environment!\e[0m\n"

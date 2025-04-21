@@ -2,12 +2,22 @@
   description = "My collection of templates";
 
   outputs =
-    { self }:
+    { ... }:
     {
+      defaultTemplate = {
+        path = ./default;
+        description = "Basic nix-direnv flake";
+      };
+
       templates = {
-        direnv = {
-          path = ./direnv;
-          description = "Basic nix-direnv flake";
+        typst = {
+          path = ./typst;
+          description = "Typst flake";
+        };
+
+        rust = {
+          path = ./rust;
+          description = "An imperfect rust flake";
         };
 
       };
