@@ -18,6 +18,18 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
           ];
+
+          buildInputs = with pkgs; [
+
+          ];
+
+          nativeBuildInputs = with pkgs; [
+
+          ];
+
+          shellHook = ''
+            echo -e "\n\e[1;32mUsing flake development environment!\e[0m\n"
+          '';
         };
       }
     );
